@@ -17,7 +17,8 @@ async function fetchAndReplaceSvg(img) {
     try {
         let svgElement;
         if(!svgCache.has(svgUrl)){
-            const response = await fetch(svgUrl);
+            console.log(location.href + new URL(svgUrl).pathname);
+            const response = await fetch(location.href+(new URL(svgUrl).pathname));
             if (!response.ok) throw new Error('Network response was not ok');
             const svgText = await response.text();
             const parser = new DOMParser();
