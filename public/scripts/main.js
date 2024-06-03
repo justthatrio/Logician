@@ -36,7 +36,7 @@ function loadDependencies(){
         for (let i = 0; i < dependencies.length; i++) {
             const dependencySRC = dependencies[i];
             if(dependencySRC.endsWith(".js")){
-                scriptRequests.push(import(dependencySRC));
+                scriptRequests.push(import(location.origin+dependencySRC));
             }
         }
         Promise.all(scriptRequests).then(exports=>{
