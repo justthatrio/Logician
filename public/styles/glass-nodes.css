@@ -1,0 +1,39 @@
+logic-node {
+  backdrop-filter: brightness(180%) blur(20px);
+  color: var(--module-color);
+  background: #ffffff82;
+  color: black;
+  outline: white solid 2px;
+}
+logic-node .node-output, logic-node .node-input {
+  border-color: var(--module-color);
+  opacity: 0.8;
+}
+
+logic-node.logic-not-gate, logic-node.logic-nand-gate {
+  background: #ff00001a;
+  outline: solid 2px #FF3636;
+  color: var(--modal-foreground);
+}
+logic-node.logic-and-gate {
+  background-color: #2CD53242;
+  outline: #2CD532 solid 2px;
+  color: white;
+}
+logic-node.logic-or-gate {
+  background-color: #FFA8004F;
+  outline: solid 2px #FFA800;
+}
+logic-node.logic-signal-blink{
+  background-color: #499de8;
+}
+logic-node.logic-signal-repeat{
+  background-color: #ffb835;
+}
+logic-node.logic-signal-delay{
+  background-color: #686868;
+  color: white;
+}
+logic-node.logic-signal-sustain {
+  background-color: #a1bd7f;
+}

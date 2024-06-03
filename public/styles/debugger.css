@@ -1,0 +1,82 @@
+
+signal-indicator {
+  position: absolute;
+  margin: auto;
+  width: 15vw;
+  height: 20vh;
+  border-radius: 0.2rem;
+  background: #000000c4;
+  backdrop-filter: blur(20px);
+  padding: 0.5rem;
+  box-sizing: border-box;
+  outline: solid #81828136 2px;
+  height: fit-content;
+  right: 0px;
+  transform: translateX(110%) translateY(-50%);
+  z-index: 1;
+  overflow: hidden;
+}
+signal-indicator ol {
+  padding: 0px;
+  margin: 0px;
+}
+signal-indicator ol li {
+  display: flex;
+}
+signal-indicator ol li button {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: start;
+  color: white;
+}
+signal-indicator ol li svg {
+  height: 1rem;
+  float: right;
+}
+signal-indicator .colon {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  margin-left: 0.1rem;
+  color: #79ea90;
+}
+signal-indicator .key {
+  color: greenyellow;
+}
+signal-indicator .key.number-type {
+  color: cornflowerblue;
+}
+signal-indicator .key.boolean-type {
+  color: gold;
+}
+signal-indicator .key.string-type {
+  color: bisque;
+}
+.--debug-highlight {
+  outline: #5eff15 solid 2px !important;
+  box-shadow: #9b30b987 0px 0px 5px, aliceblue 0px 0px 10px !important;
+}
+logic-debugger {
+  background-color: var(--modal-background);
+  display: flex;
+}
+logic-debugger svg {
+  width: 1rem;
+}
+logic-debugger button {
+  height: 100%;
+  padding:  0.25rem !important;
+  
+}
+.--debugger-out-active {
+  outline-color: lime !important;
+  box-shadow: #00ff64 0px 0px 5px !important;
+  outline-width: 2px;
+  outline-style: solid;
+}
+.--debugger-out-active-source {
+  outline-color: lightblue !important;
+  box-shadow: lightblue 0px 0px 5px !important;
+  outline-width: 2px;
+  outline-style: solid;
+}

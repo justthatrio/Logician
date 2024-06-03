@@ -1,0 +1,1 @@
+Vectors and icons by <a href="https://dribbble.com/nargela?ref=svgrepo.com" target="_blank">Petras Nargela</a> in CC Attribution License via <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a>

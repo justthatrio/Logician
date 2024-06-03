@@ -1,0 +1,55 @@
+
+.module-settings-panel {
+  position: absolute;
+  right: 0;
+  width: 20vw;
+  max-width: 30vh;
+  background-color: #fffefe;
+  height: 98%;
+  top: 0px;
+  margin: 10px;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  box-shadow: #000000ab 0px 0px 10px -5px;
+  outline: solid 1px #bfbfbf;
+  padding: 0.8rem;
+  transition: transform 0.2s;
+  transform: translateX(100%);
+  z-index: 1;
+}
+body.--configuration-open .module-settings-panel {
+  transform: translateX(0%);
+}
+.module-settings-panel .header {
+  background-color: var(--module-color);
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  place-items: baseline;
+  gap: 0.2rem;
+  margin: -0.8rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+  place-items: center;
+  place-content: center;
+}
+.module-settings-panel .header h3 {
+  font-weight: 500;
+  margin: 0px;
+}
+.object-info {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.object-info h4 {
+  margin: 0px;
+}
+.object-info p {
+  margin-top: 0rem;
+}
+.module-settings-panel .configuration-title {
+  display: none;
+}
+.module-settings-panel.--has-settings .configuration-title {
+  display: inline;
+}

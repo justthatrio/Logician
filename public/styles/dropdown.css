@@ -1,0 +1,45 @@
+dropdown-menu {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  background-color: var(--modal-background);
+  color: var(--modal-foreground);
+  text-decoration: underline;
+  min-width: 10rem;
+  outline: solid 1px var(--modal-foreground) !important;
+}
+dropdown-menu h4 {
+  margin: 0px;
+  margin-top: 0.2rem;
+  text-align: left;
+}
+dropdown-menu icon {
+  width: 1rem;
+}
+div.icon {
+  mask-repeat: no-repeat;
+  mask-size: cover;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: var(--modal-foreground);
+}
+dropdown-menu ul {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0.4rem;
+}
+dropdown-menu ul li {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+dropdown-menu ul li:hover {
+  padding: 2px;
+  margin: -2px;
+  border-radius: 4px;
+  background-color: var(--modal-background);
+  filter: brightness(0.76) contrast(1.6) saturate(1.1);
+}

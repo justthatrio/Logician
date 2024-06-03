@@ -1,0 +1,60 @@
+Known bugs:
+
+!!! \/\/\/
+- and gates are signal sources
+- Precision zones only use precision 100 atm in preprocessing and ignore the built up precision at a spot despite rendering the configured precision at a spot
+
+Change Log:
+v1.0.0 - Initial barebones
+-- Created a barebones UI layout for the editor
+-- Added AND, OR, NAND and, NOT modules
+-- Added a "add node" context menu with the keybind "shift+A"
+-- Added node edge linking
+-- Implemented basic logic handling with signals being objects passed by the "propogateSource" function every 0.2 seconds to its edges nodes "propogateSignal" method, with the object containing a "powered" and a "startTime" field. The "propogateSignal" method conditionally propogates signals its passed to itself on the instances of its outputs connected nodes synchrounously.
+-- Added UI based node edge dragging
+-- Added bitnodes and bitmodules and bits to the signals
+-- Added a 2 pulses per logic tick limitation to every input
+-- Added per module configuration for easing the inputting of analog values manually
+
+v1.0.1 - Logic Bugfixes
+-- Fixed behaviour discrepency with or modules outputting 2 pulses in one tick instead of one synchronously and a second pulse on the proceding tick. Fixed by making the OR module exclusively act in a syncrounos manner or exclusively as a source module if it has an input powered from the last tick.
+-- Fixed the bit node logic overflowing into the bitmodule logic and outputting 2 signals per received signal.
+-- Optimised the logic handling of sources to only output an unpowered signal if the last ticks output was powered and no signal was outputted during the current logic tick. Also moved some per tick init code to the "propogateSignal" method on the nodes so it only runs if the node receives a signal in that tick, aka the signal propogation is now fully event based with no redundent propogation.
+-- Fixed alignment issues with rendering of edges when innitially connected
+-- Added a highlight to selected nodes and changed the condition for a node to be selected to reduce the configuration panel opening and closing for every drag.
+
+v1.0.2 - Save System Creation
+-- Implemented a dependency loader for splitting up the code base and simplifying/standardizing the use of ES6 modules
+-- Added a projects list with the basis for a source-control system with auto saving, and versioned project loading. The project versions have a memory efficient save structure that only denotes modifications between the last version and the new version of the projects node-tree.
+
+v1.0.3 - Save System Update
+-- Created UI for managing a saves versions
+-- Scoped project loading to workspaces in preporation for implementing the ability to have multiple projects/versions open and onscreen at once.
+-- Overhalled the save system, fixed a ton of bugs and converted the versioning over to use parent versions as a reference for diffing rather than the last made version, and added version locking to versions used as references.
+-- Fixed a bug with new versions adding edges to nodes in old versions from nodes existing in both versions
+
+v1.0.4 - Visual Update
+-- Added theme support
+-- Created a theme manager for selecting themes
+
+v1.0.5 logic fixes
+-- Fixed descrepencies with the OR module sending 2 pulses back to back when it receives a second pulse, now the or module yields the combined signal on the next tick rather than the current one. (This may still be wrong tho because if the or module is already receiving 1 signal, it appears a second signal instantly yields the combinated signal, so further investigation will be needed)
+-- Added functionality to the final gates missing theirs (xor, xnor, nor) 
+-- Fixed source signals propogation order causing signals to instantly reach the end of a not chain depending on the order that the NOT gates were added to the workspace. Applied to all source signal emitters.
+
+v1.0.6 workspace improvements
+-- Added multi-node selecting and selection previewing
+-- Implemented multi-node manipulation. When a node is dragged, if others are selected the delta of the drag OP is applied to their positions aswell.
+-- Added node deleting, copying, pasting and duplicating. The copy paste ops are handled by encoding and decoding unicode text from the clipboard, allowing ops to transfer across third party applications. The nodes are contained within a query parameter of an images url for the sake of rendering as an image instead of text in thirdparty applications.
+-- Added "PrecisionZones" for handling float math, the zones have two modes, relative and absolute. The relative zones increase the current resolution by a factor, and the absolute zones overwrite the current resolution. Nodes are effected by the deepest absolute zone they are encompased by and any proceding relative zones. (Missing functionality, only rendering implemented)
+-- Added support for sandboxed nodegraph preprocessors with nodes contained within an Zone
+-- Implemented precision zone functionality via a preprocessor
+-- Extended preprocessors to the workspace, enabling global preprocessing ontop of the Zones contributions, and a consolidated processing order.
+
+v1.1.0 finishing touches
+-- Created a signal splitter generator preprocessor for the workspace
+-- Added close buttons to every popup panel
+-- Added the logic debugger
+-- Added repeat, sustain, delay and signal blink mods
+.. Implemented edge order of execution editing
+.. Added a "download" button to the project list items in the load menu and an "open" button to the menu for loading and sharing projects.

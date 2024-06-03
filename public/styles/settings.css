@@ -1,0 +1,97 @@
+
+:host  {
+  background-color: var(--modal-background);
+  border-radius: 0.4rem;
+  box-shadow: #000000de 0px 1px 4px -1px;
+  color: var(--modal-foreground);
+  padding: 0.4rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  margin: 0px;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+h2 {
+  font-size: 1.2rem;
+  margin: 0px;
+  border-bottom: solid 1px #808080bd;
+  padding: 0.4rem;
+  padding-top: 0px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  background-color: #00000029;
+  border-radius: 0.4rem;
+  outline: solid 1px #808080bd;
+  padding: 0.5rem 0px;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  gap: 0.5rem;
+}
+.pre-processors {
+  max-width: 20vw;
+  overflow: hidden;
+}
+#add-processor {
+  float: right;
+}
+.pre-processors ol {
+  background-color: var(--modal-background);
+  margin: 0px;
+  padding: 0px;
+  height: 0px;
+  flex-grow: 1;
+  margin-bottom: -0.4rem;
+  padding: 0.4rem;
+  gap: 0rem;
+  display: flex;
+  flex-direction: column;
+}
+.pre-processors ol button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 0px;
+  border-radius: 0.4rem;
+  box-shadow: black 0px 1px 4px -1px;
+}
+li.--selected {
+  filter: brightness(1.2) saturate(1.2);
+  background-color: var(--modal-background);
+  box-shadow: #00000085 0px -3px 2px -2px inset;
+}
+#editor-target {
+  height: 100%;
+}
+.proprocessor--tabs-containers {
+    height: 100%;
+    margin-bottom: -0.5rem;
+    position: relative;
+}
+.proprocessor--tabs button {
+  background: none;
+  color: var(--modal-foreground);
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-style: solid;
+  border-bottom: none;
+  padding: 0.1rem 0.2rem;
+}
+.--content-hidden {
+  display: none;
+}

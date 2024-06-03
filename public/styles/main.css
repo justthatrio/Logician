@@ -1,0 +1,165 @@
+
+body, html {
+  height: 100vh;
+  width: 100vw;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  overflow: hidden;
+  font-family: ubuntu;
+  --selection-color: #4e82ff;
+}
+button {
+  cursor: pointer;
+}
+button.close-button {
+  position: absolute;
+  right: 0.4rem;
+  top: 0.4rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.selection-box {
+  position: absolute;
+  background-color: #2082ff29;
+  outline: solid 2px #68c6ff;
+  pointer-events: none;
+}
+.selection-highlighted  {
+  outline: solid 2px #59b1ff;
+  box-shadow: #4ba2ff 0px 0px 10px, #4ba2ff6e 0px 0px 50px 10px inset;
+}
+.workspace-container {
+  background: url(/media/grid.png);
+  background-size: cover;
+  background-repeat: repeat;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#source_control .label {
+  width: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: fit-content;
+  white-space: nowrap;
+}
+#source_control {
+  margin-left: auto;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.panel {
+  box-sizing: border-box;
+  padding: 0.4rem;
+  gap: 0.4rem;
+  display: flex;
+}
+.panel button {
+  border: none;
+  background-color: #f0f0f0;
+  padding: 0.2em 0.5em;
+  border-radius: 0.4rem;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  gap: 0.2rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.panel button:hover {
+  background: none;
+}
+.panel button * {
+  pointer-events: fill;
+}
+.panel > hr {
+  margin: 0px;
+  opacity: 0.24;
+}
+.logic-workspace {
+  position: absolute;
+  inset: 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  flex-direction: column-reverse;
+  gap: 1em;
+}
+
+tooltip {
+  background-color: #090808f5;
+  color: white;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  cursor: default;
+  border: solid 1px gray;
+  position: absolute;
+}
+.websandbox__frame {
+  display: none;
+}
+.panel select {
+  background-color: var(--modal-background);
+  color: var(--modal-foreground);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+.--readonly > logic-node > .node-connections {
+  pointer-events: none;
+}
+
+.pastebox{
+  opacity: 0.001;
+  scale: 0.001;
+  user-select: none;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+logic-workspace {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.configuration-target {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+button:disabled {
+  filter: contrast(0.6) brightness(0.8) saturate(1.4);
+  cursor: not-allowed;
+}
+edge.--hide-node, logic-node.--hide-node {
+  display: none;
+}
+project-settings {
+  position: absolute;
+  inset: 0px;
+  margin: auto;
+  width: 95vw;
+  height: 80vh;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}

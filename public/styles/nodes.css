@@ -1,0 +1,134 @@
+logic-node {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem 0.5rem;
+  background: white;
+  box-shadow: #0000001f -0px 3px 10px -4px, #00000080 -0px 1px 3px -1px;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  gap: 0.4rem;
+  position: absolute;
+}
+logic-node header img, logic-node header svg {
+  width: 1.3em;
+  height: 1.3em;
+  pointer-events: none;
+}
+logic-node header {
+  display: flex;
+  align-content: center;
+  place-items: center;
+  gap: 0.5em;
+}
+logic-node.--selected {
+  outline: solid 1px #0b3dff;
+  box-shadow: #54c6fd7d 0px 0px 12px -2px, blue 0px 0px 4px;
+}
+
+logic-node.logic-and-gate {
+  transition: box-shadow 0.2s;
+  background: #2CD532;
+}
+.logic-nand-gate {
+  background-color: #99C93782;
+}
+.logic-xor-gate {
+  background-color: #EC70037A;
+}
+logic-node.logic-or-gate {
+  background-color: #FFA800;
+}
+
+logic-node.logic-not-gate {
+  transition: box-shadow 0.2s;
+  background: #F00;
+  color: white;
+}
+logic-node.logic-and-gate:hover {
+  box-shadow: #66ce6c -0px 3px 10px -4px, #fd000080 -0px 1px 3px -1px;
+}
+logic-node.logic-not-gate:hover {
+  box-shadow: #ff000075 -0px 3px 10px -4px, #fd000080 -0px 1px 3px -1px;
+}
+logic-node.logic-signal-blink{
+  background-color: #499de8;
+}
+logic-node.logic-signal-repeat{
+  background-color: #ffb835;
+}
+logic-node.logic-signal-delay{
+  background-color: #686868;
+  color: white;
+}
+logic-node.logic-signal-sustain {
+  background-color: #a1bd7f;
+}
+
+.logic-bit-module label {
+  width: 1.5rem;
+  max-width: 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.logic-bit-module {
+  background-color: #e1e1e1;
+}
+
+logic-node .node-output, logic-node .node-input {
+  width: fit-content;
+  height: fit-content;
+  padding: 0.2rem;
+  border-radius: 100px;
+  border: solid gray 2px;
+  position: relative;
+  background: #8080803d;
+}
+logic-node .node-output.--connected, logic-node .node-input.--connected {
+  background-color: grey;
+}
+logic-node .node-input.--powered, logic-node .node-output.--powered {
+  background-color: #fb9d39;
+  border-color: #fb9d39;
+  box-shadow: #ff60008a 0px 0px 3px 2px, #ffd67436 0px 0px 10px 10px;
+  outline: solid 1px #00000070;
+}
+logic-node .node-output:hover, logic-node .node-input:hover {
+  outline: solid 2px #649bf0;
+  background: #518cfb;
+}
+logic-node .node-output::after, logic-node .node-input::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  scale: 3;
+  inset: 0;
+}
+
+.node-connections {
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  place-content: center;
+  height: 0.2rem;
+  justify-content: space-around;
+}
+
+edge {
+  width: 5px;
+  background-color: #373737;
+  position: absolute;
+  box-shadow: black 0px 0px 5px -3px;
+  border-radius: 100px;
+  transform-origin: 25% 0%;
+}
+edge.--powered {
+  background-color: #fd9209;
+  box-shadow: gold 0px 0px 5px;
+}
+.edge-target {
+  width: 0px;
+  height: 0px;
+  margin: auto;
+}

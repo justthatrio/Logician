@@ -1,0 +1,9 @@
+body {
+    --modal-background: white;
+    --modal-foreground: black;
+    --modal-primary: BlueViolet;
+    --modal-primary-foreground: white;
+}
+img.--showing-theme {
+  scale: 1.6;
+}

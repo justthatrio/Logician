@@ -1,0 +1,33 @@
+.logic-precision-zone {
+  position: absolute;
+  background-color: #ffffff4a;
+  border-radius: 0.4rem;
+  padding: 0.2rem;
+  --zone-color: #af00ff;
+  outline: var(--zone-color) 2px solid;
+}
+.logic-precision-zone header {
+  background-color: var(--zone-color);
+  padding: 0.4rem;
+  margin: -0.2rem;
+  border-top-right-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
+  color: white;
+  font-weight: bold;
+  pointer-events: all;
+}
+.logic-precision-zone.selected {
+  outline: var(--selection-color) 2px solid;
+  box-shadow: var(--selection-color) 0px 1px 20px -6px;
+}
+.logic-precision-zone.selected::before {
+  content: "";
+  position: absolute;
+  inset: 0px;
+  background-color: var(--selection-color);
+  z-index: -1;
+  opacity: 0.1;
+}
+.logic-precision-zone.--absolute {
+  --zone-color: #0087ff;
+}
