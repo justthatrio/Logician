@@ -23,11 +23,11 @@ const NODE_TYPES = new Map([
 ])
 
 const dependencies = [
-    "/scripts/savesList.js",
-    "/scripts/sourceControl.js",
-    "/scripts/objectDiff.js",
-    "/scripts/logic-debugger.js",
-    "/scripts/settings.js"
+    "scripts/savesList.js",
+    "scripts/sourceControl.js",
+    "scripts/objectDiff.js",
+    "scripts/logic-debugger.js",
+    "scripts/settings.js"
 ];
 
 function loadDependencies(){
@@ -36,7 +36,7 @@ function loadDependencies(){
         for (let i = 0; i < dependencies.length; i++) {
             const dependencySRC = dependencies[i];
             if(dependencySRC.endsWith(".js")){
-                scriptRequests.push(import(location.origin+dependencySRC));
+                scriptRequests.push(import(location.href+dependencySRC));
             }
         }
         Promise.all(scriptRequests).then(exports=>{
