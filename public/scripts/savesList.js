@@ -3,7 +3,7 @@ const htmlSource = `
 <div class="save-menu ubuntu-medium panel">
 	<h4>
         Saves List
-        <button id="new-project">New project<img src="/media/icons/plus-svgrepo-com.svg" height="20"></button>
+        <button id="new-project">New project<img src="./media/icons/plus-svgrepo-com.svg" height="20"></button>
         <button class="close-button">-</button>
     </h4>
 	<hr>
@@ -22,8 +22,8 @@ const htmlSource = `
 				<textarea placeholder="Enter a description for your circuit"></textarea>
 			</div>
 			<div class="save-controls">
-				<button id="load-selected-save">Load<img height="20" src="/media/icons/upload-svgrepo-com.svg"></button>
-				<button id="delete-selected-save">Delete<img height="20" src="/media/icons/delete-2-svgrepo-com.svg"></button>
+				<button id="load-selected-save">Load<img height="20" src="./media/icons/upload-svgrepo-com.svg"></button>
+				<button id="delete-selected-save">Delete<img height="20" src="./media/icons/delete-2-svgrepo-com.svg"></button>
 			</div>
 		</div>
 	</div>
@@ -215,7 +215,7 @@ function getSaveData(workspace){
 
     saveData.save = function(){
         console.log("saving ");
-        Promise.all([import("/scripts/objectDiff.js"), import("/scripts/srcCtrlOps.js")]).then(([objDiff, srcCtrl])=>{
+        Promise.all([import("./scripts/objectDiff.js"), import("./scripts/srcCtrlOps.js")]).then(([objDiff, srcCtrl])=>{
             let toSave = {...saveData};
     
             if(this && !this.locked){ // Save is being called on a project
@@ -287,128 +287,128 @@ export class Panel extends HTMLDivElement {
         super();
         this.style.zIndex = "1";
         Object.defineProperty(this, "instigatorWorkspace", {
-            set: (v)=>{
-                // Create a shadow root
-                const shadow = this.attachShadow({ mode: "open" });
+          set: (v)=>{
+              // Create a shadow root
+              const shadow = this.attachShadow({ mode: "open" });
 
-                this.__instigator_workspace = v;
+              this.__instigator_workspace = v;
 
-                let tempContainer = document.createElement("div");
-                tempContainer.innerHTML = htmlSource;
+              let tempContainer = document.createElement("div");
+              tempContainer.innerHTML = htmlSource;
 
-                var fontLink = document.createElement("link"); 
-                fontLink.type = "text/css"; 
-                fontLink.rel = "stylesheet"; 
-                fontLink.href = "/Ubuntu/Ubuntu-Regular.ttf";
-                shadow.appendChild(fontLink);
+              var fontLink = document.createElement("link"); 
+              fontLink.type = "text/css"; 
+              fontLink.rel = "stylesheet"; 
+              fontLink.href = "./Ubuntu/Ubuntu-Regular.ttf";
+              shadow.appendChild(fontLink);
 
-                var fontStyle = document.createElement("link"); 
-                fontStyle.type = "text/css"; 
-                fontStyle.rel = "stylesheet"; 
-                fontStyle.href = "/styles/ubuntu.css";
-                shadow.appendChild(fontStyle);
+              var fontStyle = document.createElement("link"); 
+              fontStyle.type = "text/css"; 
+              fontStyle.rel = "stylesheet"; 
+              fontStyle.href = "./styles/ubuntu.css";
+              shadow.appendChild(fontStyle);
 
-                var fontStyle = document.createElement("link"); 
-                fontStyle.type = "text/css"; 
-                fontStyle.rel = "stylesheet"; 
-                fontStyle.href = "/styles/main.css";
-                shadow.appendChild(fontStyle);
+              var fontStyle = document.createElement("link"); 
+              fontStyle.type = "text/css"; 
+              fontStyle.rel = "stylesheet"; 
+              fontStyle.href = "./styles/main.css";
+              shadow.appendChild(fontStyle);
 
-                // Adds theme support to the panel
-                var themeStyle = document.createElement("link"); 
-                themeStyle.type = "text/css"; 
-                themeStyle.rel = "stylesheet"; 
-                themeStyle.href = "/styles/themes.css";
-                shadow.appendChild(themeStyle);
-                shadow.adoptedStyleSheets.push(globalThemeSheet);
-            
-                const style = document.createElement("style");
-                
-                style.textContent = cssSource;
-                let selectedSave;
+              // Adds theme support to the panel
+              var themeStyle = document.createElement("link"); 
+              themeStyle.type = "text/css"; 
+              themeStyle.rel = "stylesheet"; 
+              themeStyle.href = "./styles/themes.css";
+              shadow.appendChild(themeStyle);
+              shadow.adoptedStyleSheets.push(globalThemeSheet);
+          
+              const style = document.createElement("style");
+              
+              style.textContent = cssSource;
+              let selectedSave;
 
-            
-                function selected(){
-                    selectedSave = this;
-                    shadow.querySelector(".selected-save-panel").classList.add("--expanded");
-                    const saveInput =  shadow.querySelector(".selected-save-panel .save-name");     
-                    const description = shadow.querySelector("textarea");       
-                    saveInput.value = this.name;
-                    if(this.description) description.value = this.description;
-                }
+          
+              function selected(){
+                  selectedSave = this;
+                  shadow.querySelector(".selected-save-panel").classList.add("--expanded");
+                  const saveInput =  shadow.querySelector(".selected-save-panel .save-name");     
+                  const description = shadow.querySelector("textarea");       
+                  saveInput.value = this.name;
+                  if(this.description) description.value = this.description;
+              }
 
-                shadow.appendChild(style);
-                while(tempContainer.firstChild) shadow.appendChild(tempContainer.firstChild);
-                
-                shadow.querySelector("button.close-button").addEventListener("click", ()=>{
-                  this.remove();
-                });
+              shadow.appendChild(style);
+              while(tempContainer.firstChild) shadow.appendChild(tempContainer.firstChild);
+              
+              shadow.querySelector("button.close-button").addEventListener("click", ()=>{
+                this.remove();
+              });
 
-                // Create the save item UI elements
-                this.saveData = getSaveData(this.__instigator_workspace);
-                const savesList = shadow.getElementById("saves-list");
-                for (let i = 0; i < this.saveData.saves.length; i++) {
-                    const save = this.saveData.saves[i];
-                                
-                    let item = createSaveItem(save);
-                    savesList.appendChild(item);
-                    item.addEventListener("click", selected.bind(save));
-                }
+              // Create the save item UI elements
+              this.saveData = getSaveData(this.__instigator_workspace);
+              const savesList = shadow.getElementById("saves-list");
+              for (let i = 0; i < this.saveData.saves.length; i++) {
+                  const save = this.saveData.saves[i];
+                              
+                  let item = createSaveItem(save);
+                  savesList.appendChild(item);
+                  item.addEventListener("click", selected.bind(save));
+              }
 
 
-                // Attach event listeners
-                shadow.getElementById("load-selected-save").addEventListener("click", ()=>{
-                    if(!selectedSave) return;
-                    import("/scripts/srcCtrlOps.js").then((srcCtrl)=>{
-                        let evTarget = this.__instigator_workspace.__node_container;
-                        selectedSave.nodes = srcCtrl.constructNodes(selectedSave, selectedSave.versions[selectedSave.versions.length-1]);
-                        selectedSave.version = selectedSave.versions[selectedSave.versions.length-1].version;
-                        
-                        evTarget.dispatchEvent(new CustomEvent("projectLOAD", {
-                            detail: selectedSave,
-                        }));
-                        this.remove();
-                    });
-                });
-                shadow.getElementById("delete-selected-save").addEventListener("click", ()=>{
+              // Attach event listeners
+              shadow.getElementById("load-selected-save").addEventListener("click", ()=>{
+                  if(!selectedSave) return;
+                  import("./scripts/srcCtrlOps.js").then((srcCtrl)=>{
+                      let evTarget = this.__instigator_workspace.__node_container;
+                      selectedSave.nodes = srcCtrl.constructNodes(selectedSave, selectedSave.versions[selectedSave.versions.length-1]);
+                      selectedSave.version = selectedSave.versions[selectedSave.versions.length-1].version;
+                      
+                      evTarget.dispatchEvent(new CustomEvent("projectLOAD", {
+                          detail: selectedSave,
+                      }));
+                      this.remove();
+                  });
+              });
+              shadow.getElementById("delete-selected-save").addEventListener("click", ()=>{
 
-                });
-                shadow.getElementById("new-project").addEventListener("click", ()=>{
-                    shadow.querySelector(".save-menu").classList.add("--creating-new");
-                });
-                const newProjectNameInput = shadow.querySelector(".new-project-panel input");
-                shadow.getElementById("cancel-project").addEventListener("click", ()=>{
-                    newProjectNameInput.value = "";
-                    shadow.querySelector(".save-menu").classList.remove("--creating-new");
-                });
-                shadow.getElementById("create-project").addEventListener("click", ()=>{
-                    import("/scripts/srcCtrlOps.js").then((srcCtrl)=>{
-                        const newSave = {
-                            name: newProjectNameInput.value,
-                            description: "",
-                            version:"1.0.0",
-                            versions: [{
-                                version:"1.0.0",
-                                parent: undefined,
-                                locked: false,
-                                ts: new Date(),
-                                diff: {}
-                            }],
-                        }
-                        this.saveData.saves.push(newSave);
-                        newSave.save();
-                        newSave.nodes=srcCtrl.constructNodes(newSave, newSave.versions[newSave.versions.length-1]);
-                        this.__instigator_workspace.__node_container.dispatchEvent(new CustomEvent("projectLOAD", {
-                                detail: newSave
-                            },
-                        ));
-                        this.remove();
-                    });
-                });
-            },
-            get:()=>{
-                return this.__instigator_workspace;
-            }
+              });
+              shadow.getElementById("new-project").addEventListener("click", ()=>{
+                  shadow.querySelector(".save-menu").classList.add("--creating-new");
+              });
+              const newProjectNameInput = shadow.querySelector(".new-project-panel input");
+              shadow.getElementById("cancel-project").addEventListener("click", ()=>{
+                  newProjectNameInput.value = "";
+                  shadow.querySelector(".save-menu").classList.remove("--creating-new");
+              });
+              shadow.getElementById("create-project").addEventListener("click", ()=>{
+                  import("./scripts/srcCtrlOps.js").then((srcCtrl)=>{
+                      const newSave = {
+                          name: newProjectNameInput.value,
+                          description: "",
+                          version:"1.0.0",
+                          versions: [{
+                              version:"1.0.0",
+                              parent: undefined,
+                              locked: false,
+                              ts: new Date(),
+                              diff: {}
+                          }],
+                      }
+                      this.saveData.saves.push(newSave);
+                      newSave.save();
+                      newSave.nodes=srcCtrl.constructNodes(newSave, newSave.versions[newSave.versions.length-1]);
+                      this.__instigator_workspace.__node_container.dispatchEvent(new CustomEvent("projectLOAD", {
+                              detail: newSave
+                          },
+                      ));
+                      this.remove();
+                  });
+              });
+          },
+          get:()=>{
+              return this.__instigator_workspace;
+          }
         })        
     }
     connectedCallback(){
