@@ -154,6 +154,9 @@ project-settings {
   width: 95vw;
   height: 80vh;
 }
+.--preprocessedview .logic-precision-zone {
+  display: none;
+}
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
