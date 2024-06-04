@@ -32,7 +32,7 @@ button.close-button {
   box-shadow: #4ba2ff 0px 0px 10px, #4ba2ff6e 0px 0px 50px 10px inset;
 }
 .workspace-container {
-  background: url(/media/grid.png);
+  background: url(./media/grid.png);
   background-size: cover;
   background-repeat: repeat;
   height: 100%;

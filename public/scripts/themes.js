@@ -3,7 +3,7 @@ const mql = window.matchMedia("(prefers-color-scheme: dark)");
 const presetThemes = {
   LatteGrande:{
   id:"LatteGrande",
-  thumbnail:"/media/themes/LatteGrande.png",
+  thumbnail:"./media/themes/LatteGrande.png",
   content:`
 body {
   background: rgb(221, 182, 140);
@@ -69,7 +69,7 @@ body.--dark-mode > .panel {
   `},
   ButterBerry:{
     id:"ButterBerry",
-    thumbnail:"/media/themes/ButterBerry.png",
+    thumbnail:"./media/themes/ButterBerry.png",
     content:`
       body {
         --modal-foreground: black;
@@ -149,7 +149,7 @@ body.--dark-mode > .panel {
   },
   CrimsonCaves:{
     id:"CrimsonCaves",
-    thumbnail:"/media/themes/CrimsonCaves.png",
+    thumbnail:"./media/themes/CrimsonCaves.png",
     content:`
       body {
         --modal-background: crimson;
@@ -223,7 +223,7 @@ body.--dark-mode > .panel {
   },
   BioAquatic:{
     id:"BioAquatic",
-    thumbnail:"/media/themes/BioAquatic.png",
+    thumbnail:"./media/themes/BioAquatic.png",
     content:`
       body {
         background: rgb(90,180,212);
@@ -366,12 +366,12 @@ function setTheme(theme, thumb){
     localStorage.removeItem("node-theme");
     updateEdges()
   }else if( nodeThemeName == "Glass"){
-    fetch("/styles/glass-nodes.css").then(v=> v.text()).then(css=>{
+    fetch("./styles/glass-nodes.css").then(v=> v.text()).then(css=>{
       nodeTheme.replaceSync(css);
       updateEdges()
     });
   }else if(nodeThemeName == "Skinned"){
-    fetch("/styles/skinned-nodes.css").then(v=> v.text()).then(css=>{
+    fetch("./styles/skinned-nodes.css").then(v=> v.text()).then(css=>{
       nodeTheme.replaceSync(css);
       updateEdges()
     });
@@ -499,27 +499,27 @@ class Panel extends HTMLDivElement{
     var fontLink = document.createElement("link"); 
     fontLink.type = "text/css"; 
     fontLink.rel = "stylesheet"; 
-    fontLink.href = "/Ubuntu/Ubuntu-Regular.ttf";
+    fontLink.href = "./Ubuntu/Ubuntu-Regular.ttf";
     shadow.appendChild(fontLink);
 
     var fontStyle = document.createElement("link"); 
     fontStyle.type = "text/css"; 
     fontStyle.rel = "stylesheet"; 
-    fontStyle.href = "/styles/ubuntu.css";
+    fontStyle.href = "./styles/ubuntu.css";
     shadow.appendChild(fontStyle);
 
     // Adds theme support to the panel
     var themeStyle = document.createElement("link"); 
     themeStyle.type = "text/css"; 
     themeStyle.rel = "stylesheet"; 
-    themeStyle.href = "/styles/themes.css";
+    themeStyle.href = "./styles/themes.css";
     shadow.appendChild(themeStyle);
     shadow.adoptedStyleSheets.push(globalThemeSheet);
 
     var fontStyle = document.createElement("link"); 
     fontStyle.type = "text/css"; 
     fontStyle.rel = "stylesheet"; 
-    fontStyle.href = "/styles/main.css";
+    fontStyle.href = "./styles/main.css";
     shadow.appendChild(fontStyle);
     
     const style = document.createElement("style");
@@ -560,12 +560,12 @@ class Panel extends HTMLDivElement{
         localStorage.removeItem("node-theme");
         updateEdges();
       }else if( moduleRenderingInput.value == "Glass"){
-          fetch("/styles/glass-nodes.css").then(v=> v.text()).then(css=>{
+          fetch("./styles/glass-nodes.css").then(v=> v.text()).then(css=>{
           nodeTheme.replaceSync(css);
           updateEdges();
         });
       }else if(moduleRenderingInput.value == "Skinned"){
-        fetch("/styles/skinned-nodes.css").then(v=> v.text()).then(css=>{
+        fetch("./styles/skinned-nodes.css").then(v=> v.text()).then(css=>{
           nodeTheme.replaceSync(css);
           updateEdges();
         });
