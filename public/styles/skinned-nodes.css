@@ -1,14 +1,14 @@
 
 logic-node:not(.logic-precision-zone) {
   background-color: #fff0 !important;
-  background: url(/media/skinned-node-back.png) !important;
+  background: url(./media/skinned-node-back.png) !important;
   background-size: cover;
   font-size: 0rem;
 }
 logic-node:not(.logic-precision-zone) header {
   min-height: 2rem;
   width: 1rem;
-  mask-image: url(/media/skinned-plaque-mask.png#);
+  mask-image: url(./media/skinned-plaque-mask.png);
   mask-size: cover;
   background-color: #c1c1c1;
   margin: auto;
