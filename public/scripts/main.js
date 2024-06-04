@@ -356,7 +356,7 @@ function spawnDropdown(options, x=0, y=0){
             if(options[i].handler instanceof Function){
                 option.addEventListener("pointerdown", function(ev){
                     options[i].handler(ev);
-                    dropdown.remove();
+                    if(dropdown.parentElement) dropdown.remove();
                 });
             }
             lastList.appendChild(option);

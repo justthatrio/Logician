@@ -92,6 +92,10 @@ body {
   margin: auto;
   flex-direction: column-reverse;
   gap: 1em;
+  z-index: 0;
+}
+.logic-precision-zone {
+  z-index: -1;
 }
 
 tooltip {
