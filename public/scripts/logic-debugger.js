@@ -13,20 +13,20 @@ export class Debugger{
 
         const playButton = document.createElement("button");
         const playImg = document.createElement("img");
-        playImg.src="/media/workspace_icons/debug-start-svgrepo-com.svg"
+        playImg.src="./media/workspace_icons/debug-start-svgrepo-com.svg"
         this.element.appendChild(playButton);
         playButton.appendChild(playImg);
         playButton.style.display = "none";
 
         const pauseButton = document.createElement("button");
         const pauseImg = document.createElement("img");
-        pauseImg.src="/media/workspace_icons/debug-pause-svgrepo-com.svg"
+        pauseImg.src="./media/workspace_icons/debug-pause-svgrepo-com.svg"
         this.element.appendChild(pauseButton);
         pauseButton.appendChild(pauseImg);
         
         const stepOverButton = document.createElement("button");
         const stepOverImg = document.createElement("img");
-        stepOverImg.src="/media/workspace_icons/debug-step-over-svgrepo-com.svg"
+        stepOverImg.src="./media/workspace_icons/debug-step-over-svgrepo-com.svg"
         this.element.appendChild(stepOverButton);
         stepOverButton.appendChild(stepOverImg);
         
