@@ -215,7 +215,7 @@ function getSaveData(workspace){
 
     saveData.save = function(){
         console.log("saving ");
-        Promise.all([import("./scripts/objectDiff.js"), import("./scripts/srcCtrlOps.js")]).then(([objDiff, srcCtrl])=>{
+        Promise.all([import("./objectDiff.js"), import("./srcCtrlOps.js")]).then(([objDiff, srcCtrl])=>{
             let toSave = {...saveData};
     
             if(this && !this.locked){ // Save is being called on a project
@@ -359,7 +359,7 @@ export class Panel extends HTMLDivElement {
               // Attach event listeners
               shadow.getElementById("load-selected-save").addEventListener("click", ()=>{
                   if(!selectedSave) return;
-                  import("./scripts/srcCtrlOps.js").then((srcCtrl)=>{
+                  import("./srcCtrlOps.js").then((srcCtrl)=>{
                       let evTarget = this.__instigator_workspace.__node_container;
                       selectedSave.nodes = srcCtrl.constructNodes(selectedSave, selectedSave.versions[selectedSave.versions.length-1]);
                       selectedSave.version = selectedSave.versions[selectedSave.versions.length-1].version;
@@ -382,7 +382,7 @@ export class Panel extends HTMLDivElement {
                   shadow.querySelector(".save-menu").classList.remove("--creating-new");
               });
               shadow.getElementById("create-project").addEventListener("click", ()=>{
-                  import("./scripts/srcCtrlOps.js").then((srcCtrl)=>{
+                  import("./srcCtrlOps.js").then((srcCtrl)=>{
                       const newSave = {
                           name: newProjectNameInput.value,
                           description: "",
