@@ -1216,13 +1216,13 @@ class LogicWorkspace{
         let element = document.createElement("logic-workspace");
         element.innerHTML = `
             <div class="panel">
-                <button id="add-node">Add Node<img src="/media/icons/plus-svgrepo-com.svg" height="20"></button>
+                <button id="add-node">Add Node<img src="./media/icons/plus-svgrepo-com.svg" height="20"></button>
                 <hr>
-                <button id="load_workspace">Load<img height="20" src="/media/icons/upload-svgrepo-com.svg"></button>
+                <button id="load_workspace">Load<img height="20" src="./media/icons/upload-svgrepo-com.svg"></button>
                 <select id="workspace_view"><option>Source Code</option><option>Preprocessed</option></select>
-                <button id="source_control" disabled="true"><span class="label"></span><img height="20" src="/media/workspace_icons/source-control-svgrepo-com.svg"></button>
-                <button id="settings" style="display: none;"><img height="20" src="/media/workspace_icons/settings-svgrepo-com.svg"></button>
-                <button id="theme_manager"><img height="20" src="/media/tools/color-adjustement-mode-channels-svgrepo-com.svg"></button>
+                <button id="source_control" disabled="true"><span class="label"></span><img height="20" src="./media/workspace_icons/source-control-svgrepo-com.svg"></button>
+                <button id="settings" style="display: none;"><img height="20" src="./media/workspace_icons/settings-svgrepo-com.svg"></button>
+                <button id="theme_manager"><img height="20" src="./media/tools/color-adjustement-mode-channels-svgrepo-com.svg"></button>
             </div>
             <div class="workspace-container" style="--module-color: #ecebeb;">
                 <div class="module-settings-panel">
