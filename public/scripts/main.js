@@ -1550,7 +1550,7 @@ class LogicWorkspace{
                 node.memory.height = Math.round(window.screen.height/4);
                 node.memory.zoneType = "Relative";
                 node.connectPreprocessor(new Preprocessor({
-                    src: "/scripts/preproc/precision-zones.js",
+                    src: "./scripts/preproc/precision-zones.js",
                     workspace:this,
                 }));
             }
@@ -2025,7 +2025,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     loadDependencies().then((dependencyMap)=>{
         activeWorkspace = new LogicWorkspace(dependencyMap);
         activeWorkspace.connectPreprocessor(new Preprocessor({
-            src: "/scripts/preproc/auto-splitters.js",
+            src: "./scripts/preproc/auto-splitters.js",
             workspace: activeWorkspace,
         }));
         document.body.appendChild(activeWorkspace.element);
